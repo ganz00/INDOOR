@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.simutech.landry.stechmappingindoor.Ponctuel">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.60"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/ponctuelNbpoint"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.34"
+                android:gravity="center"
+                android:text="Nombre de points"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/ponctuelHist"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.66"
+                android:gravity="center"
+                android:text="derniers points"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/ponctuelBtntake"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="40dp"
+            android:text="Prendre mesure" />
+
+        <Button
+            android:id="@+id/ponctuelBtnFin"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="40dp"
+            android:text="Terminer" />
+
+    </LinearLayout>
+</RelativeLayout>
