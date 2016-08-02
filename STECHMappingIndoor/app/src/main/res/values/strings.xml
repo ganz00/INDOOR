@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">STECH  Indoor</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="envoyer">Envoyer</string>
+    <string name="settings">settings</string>
+    <string name="pause">Pause</string>
+    <string name="temp">Etat</string>
+    <string name="statut_sims_1">Statut sims 1</string>
+    <string name="statut_sim_2">Statut sim 2</string>
+    <string name="techno_text">Choisir la technologie de la sim 1</string>
+    <string name="_4g">4G</string>
+    <string name="_3g">3G</string>
+    <string name="_2g">2G</string>
+    <string name="modeE">Echantillonage</string>
+    <string name="mode_P">Mode poncuel</string>
+    <string name="Cmode">Choix du mode</string>
+</resources>

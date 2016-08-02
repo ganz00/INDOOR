@@ -29,6 +29,7 @@ public class Erreur {
     private long tautre;
     private long tmesure;
     private int duree = 0;
+    boolean started = false;
     Handler handler;
     Button[] b;
     public int[] color;
@@ -40,7 +41,7 @@ public class Erreur {
     Calendar c;
     long[] debut;
     Thread T;
-    boolean started = false;
+
     boolean change = false;
 
     public static List<Erreur> list;

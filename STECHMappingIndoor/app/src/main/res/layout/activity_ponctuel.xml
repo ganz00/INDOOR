@@ -57,5 +57,47 @@
             android:layout_marginTop="40dp"
             android:text="Terminer" />
 
+        <EditText
+            android:editable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_above="@+id/linearLayout3"
+            android:layout_alignParentStart="true"
+            android:text="@string/techno_text"
+            android:layout_marginTop="50dp"
+            android:layout_alignEnd="@+id/Lcontrol"
+            android:inputType="none" />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/PonctuelRadio"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/PonctuelRadio4G"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/_4g" />
+
+            <RadioButton
+                android:id="@+id/PonctuelRadio3G"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/_3g"
+                />
+
+            <RadioButton
+                android:id="@+id/PonctuelRadio2G"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/_2g" />
+        </RadioGroup>
+
     </LinearLayout>
 </RelativeLayout>
