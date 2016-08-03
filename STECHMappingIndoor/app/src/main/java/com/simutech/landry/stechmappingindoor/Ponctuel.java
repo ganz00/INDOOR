@@ -58,6 +58,9 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
     Writter wm;
     boolean dual = true;
     SubscriptionManager Sm;
+    public RadioButton r4g;
+    public RadioButton r3g;
+    public RadioButton r2g;
     int idsim1;
     int idsim2;
     double[] lat = new double[2];
@@ -93,6 +96,10 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
         ponctuelHist = (TextView) findViewById(R.id.ponctuelHist);
         ponctuelNbpoint = (TextView) findViewById(R.id.ponctuelNbpoint);
         mContext = getApplicationContext();
+        ponctuelHist.setBackgroundColor(Color.WHITE);
+        ponctuelHist.setTextColor(Color.BLACK);
+        ponctuelNbpoint.setTextColor(Color.BLACK);
+        ponctuelNbpoint.setBackgroundColor(Color.WHITE);
         Sm = SubscriptionManager.from(mContext);
         Date d = new Date();
         DateFormat df = new DateFormat();
@@ -100,6 +107,7 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
         Ldate = (String) DateFormat.format("dd-MM-yyyy", d);
         mode[1] = "2G";
         mode[0] = "";
+
         ponctuelBtnFin.setEnabled(false);
         try {
             canstart = true;
@@ -181,6 +189,9 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
             }
             ponctuelHist.setText(val);
             ponctuelNbpoint.setText(""+i);
+            r3g.setClickable(false);
+            r4g.setClickable(false);
+            r2g.setClickable(false);
 
         }
     };
@@ -190,6 +201,9 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
             nu = num + "_";
             started = false;
             ponctuelBtnFin.setEnabled(false);
+            r3g.setClickable(true);
+            r4g.setClickable(true);
+            r2g.setClickable(true);
         }
     };
 
