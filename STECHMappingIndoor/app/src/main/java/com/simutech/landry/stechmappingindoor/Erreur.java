@@ -108,7 +108,7 @@ public class Erreur {
 
                 break;
         }
-        if (!started) {
+        if (!started && play) {
             T.start();
             started = true;
         }
@@ -180,7 +180,6 @@ public class Erreur {
 
         public void run() {
             while (play) {
-                if (cont) {
                     try {
                         sleep(500);
                     } catch (InterruptedException e) {
@@ -214,15 +213,8 @@ public class Erreur {
                         else
                             tooglecolor(3, 1);
                     }
-                } else {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
             }
-
+            started = false;
         }
     }
 

@@ -65,8 +65,8 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
     String type = "";
     int i = 0;
     int nbpos = 0;
-    int signalsim1 = 0;
-    int signalsim2 = 0;
+    int signalsim1 = -150;
+    int signalsim2 = -150;
     boolean started = false;
     int num=0;
     String nu="";
@@ -87,6 +87,9 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
         ponctuelBtnFin.setOnClickListener(FinClickListener);
         PonctuelBtntake = (Button) findViewById(R.id.ponctuelBtntake);
         PonctuelBtntake.setOnClickListener(takeClickListener);
+        r4g = (RadioButton) findViewById(R.id.PonctuelRadio4G);
+        r3g = (RadioButton) findViewById(R.id.PonctuelRadio3G);
+        r2g = (RadioButton) findViewById(R.id.PonctuelRadio2G);
         ponctuelHist = (TextView) findViewById(R.id.ponctuelHist);
         ponctuelNbpoint = (TextView) findViewById(R.id.ponctuelNbpoint);
         mContext = getApplicationContext();
@@ -143,10 +146,12 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
 
         };
     }
+    //TODO: corriger le cas ou readcell renvoie un grand nombre
     View.OnClickListener takeClickListener = new View.OnClickListener() {
         public void onClick(final View v) {
             if (!canstart)
                 return;
+
             if (!(wm.success )) {
                 ToastMaker to = new ToastMaker(Ponctuel.this, "Impossible d'enregistrer verifier la mémoire du télephone", Color.RED);
                 to.createtwo();
@@ -163,6 +168,7 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
                 to.createtwo();
                 return;
             }
+
             ponctuelBtnFin.setEnabled(true);
             obtenirPosition();
             ReadcellInfo();
@@ -171,7 +177,7 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
             String val = operateur[0]+" "+mode[0]+" "+signalsim1+" "+ "dbm" ;
             if(dual){
                 prewrite(signalsim2,1);
-                val = val+"\n"+operateur[2]+" "+mode[2]+" "+signalsim2+" "+ "dbm" ;
+                val = val+"\n"+operateur[1]+" "+mode[1]+" "+signalsim2+" "+ "dbm" ;
             }
             ponctuelHist.setText(val);
             ponctuelNbpoint.setText(""+i);
@@ -324,14 +330,7 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
             text[idsim] = format(signal, idsim);
         }
         if (lat[0] == 0) {
-            text[idsim] = signal + " " + mode[idsim] + " " + Heure + " erreur geolocalisation\n ";
-            runOnUiThread(new Runnable() {
-                public void run() {
-                    ToastMaker to = new ToastMaker(Ponctuel.this, "Attention erreur geolocalisation veillez relancer" +
-                            " l'application ou les paramètres", Color.RED);
-                    to.createone();
-                }
-            });
+            text[idsim] = signal + " " + mode[idsim] + " " + Heure + " pas de gps\n ";
         }
         wm.WriteSettings(text[idsim], idsim, Heure);
     }
