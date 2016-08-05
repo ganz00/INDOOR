@@ -182,9 +182,15 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
             ReadcellInfo();
             i++;
             prewrite(signalsim1,0);
+            if (!(signalsim1 >= -150 && signalsim1 < 0))
+                signalsim1 = -150;
+
             String val = operateur[0]+" "+mode[0]+" "+signalsim1+" "+ "dbm" ;
+
             if(dual){
                 prewrite(signalsim2,1);
+                if (!(signalsim2 >= -150 && signalsim2 < 0))
+                    signalsim2 = -150;
                 val = val+"\n"+operateur[1]+" "+mode[1]+" "+signalsim2+" "+ "dbm" ;
             }
             ponctuelHist.setText(val);
@@ -204,6 +210,9 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
             r3g.setClickable(true);
             r4g.setClickable(true);
             r2g.setClickable(true);
+            ponctuelNbpoint.setText("0");
+            ponctuelHist.setText("");
+            i=0;
         }
     };
 
