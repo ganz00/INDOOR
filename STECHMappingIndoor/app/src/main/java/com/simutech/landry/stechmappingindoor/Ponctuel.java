@@ -115,14 +115,14 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
             lManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             List<SubscriptionInfo> list = Sm.getActiveSubscriptionInfoList();
             if (list.size() == 2) {
-                wm = new Writter("Fichiersmesure", 2, Heure, handler, mContext, Ldate);
+                wm = new Writter("MesuresPonctuel", 2, Heure, handler, mContext, Ldate);
                 operateur[0] = (String) Sm.getActiveSubscriptionInfoForSimSlotIndex(0).getCarrierName();
                 operateur[1] = (String) Sm.getActiveSubscriptionInfoForSimSlotIndex(1).getCarrierName();
                 idsim1 = list.get(0).getSubscriptionId();
                 idsim2 = list.get(1).getSubscriptionId();
                 muti = new MultiSimListener(idsim2);
             } else {
-                wm = new Writter("Fichiersmesure", 1, Heure, handler, mContext, Ldate);
+                wm = new Writter("MesuresPonctuel", 1, Heure, handler, mContext, Ldate);
                 operateur[0] = (String) Sm.getActiveSubscriptionInfoForSimSlotIndex(0).getCarrierName();
                 dual = false;
             }
@@ -213,6 +213,7 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
             ponctuelNbpoint.setText("0");
             ponctuelHist.setText("");
             i=0;
+            scan();
         }
     };
 
@@ -325,7 +326,7 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
 
     public void scan() {
         Listfile();
-        MediaScannerConnection.scanFile(mContext, new String[]{wm.cartolille.getAbsolutePath()}, null, null);
+        MediaScannerConnection.scanFile(mContext, new String[]{wm.Stechdoc.getAbsolutePath()}, null, null);
         for (File f : listM) {
             MediaScannerConnection.scanFile(mContext, new String[]{wm.myDir.toString(), f.toString()}, null, null);
         }
@@ -333,7 +334,6 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
 
     public void Listfile() {
         File f2 = wm.myDir;
-
         File[] fichiers = f2.listFiles();
         int k = 0;
         listM.clear();
@@ -347,15 +347,8 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
     }
 
     public void prewrite(int signal, int idsim) {
-        if (idsim == 0) {
             text[idsim] = format(signal, idsim);
-        } else {
-            text[idsim] = format(signal, idsim);
-        }
-        if (lat[0] == 0) {
-            text[idsim] = signal + " " + mode[idsim] + " " + Heure + " pas de gps\n ";
-        }
-        wm.WriteSettings(text[idsim], idsim, Heure);
+            wm.WriteSettings(text[idsim], idsim, Heure);
     }
 
     private String format(int signal, int idsim) {
@@ -367,9 +360,9 @@ public class Ponctuel extends AppCompatActivity implements LocationListener {
             lon[idsim] = 0;
         }
         if (signal >= -150 && signal < 0)
-            return signal + ";" + Heure + ";" + lat[0] + " ; " + lon[0] + "\n";
+            return "N°"+i+"; "+signal + ";" + Heure + ";" + lat[0] + " ; " + lon[0] + "\n";
         else
-            return -150 + ";" + Heure + ";" + lat[0] + " ; " + lon[0] + "\n";
+            return "N°"+i+"; "+-150 + ";" + Heure + ";" + lat[0] + " ; " + lon[0] + "\n";
 
     }
     public void onRadioButtonClicked(View view) {

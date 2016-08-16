@@ -13,6 +13,6 @@
     <string name="_3g">3G</string>
     <string name="_2g">2G</string>
     <string name="modeE">Echantillonage</string>
-    <string name="mode_P">Mode poncuel</string>
+    <string name="mode_P">Mode ponctuel</string>
     <string name="Cmode">Choix du mode</string>
 </resources>

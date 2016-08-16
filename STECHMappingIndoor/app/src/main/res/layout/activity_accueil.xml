@@ -23,20 +23,21 @@
     <Button
         android:id="@+id/btnP"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_alignEnd="@+id/btnE"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/textView"
         android:layout_marginTop="74dp"
-        android:text="@string/mode_P" />
+        android:layout_marginBottom = "100dp"
+        android:text="@string/mode_P"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/btnE"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        android:text="@string/modeE"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnP"
-        android:layout_marginTop="87dp"
-        android:text="@string/modeE" />
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

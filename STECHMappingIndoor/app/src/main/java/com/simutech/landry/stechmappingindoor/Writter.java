@@ -14,7 +14,7 @@ import java.io.IOException;
 public class Writter {
     public File[] myFile ;
     public File myDir;
-    public File cartolille;
+    public File Stechdoc;
     public String dir;
     public boolean success;
     public int nbmes = 0;
@@ -27,12 +27,12 @@ public class Writter {
         this.handler = h;
         myFile = new File[nb];
         this.dir = dir+" "+date;
-        this.cartolille  = new File(Environment.getExternalStorageDirectory() + File.separator + Dossier);
-        this.myDir = new File(cartolille.getAbsolutePath() + File.separator + this.dir); //pour créer le repertoire dans lequel on va mettre notre fichier
+        this.Stechdoc  = new File(Environment.getExternalStorageDirectory() + File.separator + Dossier);
+        this.myDir = new File(Stechdoc.getAbsolutePath() + File.separator + this.dir); //pour créer le repertoire dans lequel on va mettre notre fichier
         success = true;
 
-        if (!cartolille.exists()) {
-            success = cartolille.mkdir(); //On crée le répertoire (s'il n'existe pas!!)
+        if (!Stechdoc.exists()) {
+            success = Stechdoc.mkdir(); //On crée le répertoire (s'il n'existe pas!!)
         }
         if (success && !myDir.exists() )
             success = myDir.mkdir();
@@ -45,12 +45,12 @@ public class Writter {
         this.handler = h;
         myFile = new File[nb];
         this.dir = dir+" "+date;
-        this.cartolille  = new File(Environment.getExternalStorageDirectory() + File.separator + Dossier);
-        this.myDir = new File(cartolille.getAbsolutePath() + File.separator + this.dir); //pour créer le repertoire dans lequel on va mettre notre fichier
+        this.Stechdoc  = new File(Environment.getExternalStorageDirectory() + File.separator + Dossier);
+        this.myDir = new File(Stechdoc.getAbsolutePath() + File.separator + this.dir); //pour créer le repertoire dans lequel on va mettre notre fichier
         success = true;
 
-        if (!cartolille.exists()) {
-            success = cartolille.mkdir(); //On crée le répertoire (s'il n'existe pas!!)
+        if (!Stechdoc.exists()) {
+            success = Stechdoc.mkdir(); //On crée le répertoire (s'il n'existe pas!!)
         }
         if (success && !myDir.exists() )
             success = myDir.mkdir();
